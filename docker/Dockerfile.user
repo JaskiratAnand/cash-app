@@ -1,18 +1,20 @@
-FROM node:21-alpine3.19
+FROM node:22-alpine3.20
 
 WORKDIR /usr/src/app
 
 COPY package.json yarn.lock turbo.json tsconfig.json ./
 
-COPY apps ./apps
+COPY apps/user-app ./apps/user-app
 COPY packages ./packages
 
-RUN yarn install
+RUN yarn install --frozen-lockfile
 
 # generating prisma client
 RUN yarn run db:generate
 
 # Can you filter the build down to just one app?
-RUN yarn run build
+RUN yarn run build --filter=apps/user-app...
+
+EXPOSE 3000
 
 CMD ["yarn", "run", "start-user-app"]
