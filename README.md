@@ -2,6 +2,14 @@
 
 This is a simple Wallet app built using Turborepo and NextJs. The backent bankWebhook handler is built using Fastify. 
 
+### Pull Docker Container from DockerHub
+```bash
+    docker pull jaskirat01/cash-user-app:latest
+```
+
+## Video Demo
+
+
 ## Setup
 
 ### Run natively
@@ -41,6 +49,3 @@ This is a simple Wallet app built using Turborepo and NextJs. The backent bankWe
 ```bash
     docker run --name user-app-container -p 3000:3000 user-app
 ```
-
-## Video Demo
-
