@@ -1,6 +1,6 @@
 # Cash App
 
-This is a simple Wallet app built using Turborepo and NextJs. The backent bankWebhook handler is built using Fastify. 
+This is a simple Wallet app built using Turborepo and NextJs. The backend bankWebhook handler is built using Fastify. 
 
 ### Pull Docker Container from DockerHub
 ```bash

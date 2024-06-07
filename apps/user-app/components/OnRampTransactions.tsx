@@ -19,16 +19,27 @@ export const OnRampTransactions = ({
     }
     return <Card title="Recent Transactions">
         <div className="">
-            {transactions.map(t => <div className="flex justify-between py-2 border-b border-gray-200 px-1">
-                <div>
-                    <div className="text-sm">
+            {transactions.slice().reverse().map(t => <div className="w-full grid grid-cols-3 justify-between py-2 border-b border-gray-200 px-1">
+                <div className="col-span-1 text-left">
+                    <div className="text-sm font-medium">
                         Received INR
                     </div>
                     <div className="text-slate-600 text-xs">
                         {t.time.toDateString()}
                     </div>
                 </div>
-                <div className="flex flex-col justify-center pr-2">
+                <div className={`col-span-1 flex flex-col justify-center text-center text-sm ${
+                        t.status === "Success" 
+                        ? "text-green-500" 
+                        : t.status === "Failure" 
+                        ? "text-red-500" 
+                        : t.status === "Processing" 
+                        ? "text-gray-500" 
+                        : ""
+                    }`}> 
+                    {t.status}
+                </div>
+                <div className="col-span-1 text-right flex flex-col justify-center pr-2">
                     + Rs {t.amount / 100}
                 </div>
 
